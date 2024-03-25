@@ -10,6 +10,9 @@ app.use(helmet());
 app.use(compression());
 
 //init db
+require("./database/init.mongodb.lv0");
+const { checkOverload } = require("./helpers/check.connect");
+checkOverload();
 
 //routing
 app.get("/", (res, next) => {
